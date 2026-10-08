@@ -48,19 +48,11 @@ function main(Algorithm, Problem)
                 O2 = OperatorGAhalf(Problem, AP(MatingIndexAP), {1,20,1,1/Problem.D});
             end
         else
-            if rand > 0.5
                 [MatingPoolMP_1, MatingPoolMP_2] = TMP(MP, Zmin, flagMP);
                 [MatingPoolAP_1, MatingPoolAP_2] = TMP(AP, Zmin, flagAP);
 
                 O1 = OperatorDE(Problem, MP, MatingPoolMP_1, MatingPoolMP_2);
                 O2 = OperatorDE(Problem, AP, MatingPoolAP_1, MatingPoolAP_2);
-            else
-                MatingIndexMP = TournamentSelection(2, length(MP), FitnessMP);
-                MatingIndexAP = TournamentSelection(2, length(AP), FitnessAP);
-
-                O1 = Neighbor_Pairing_Strategy2(Problem, MP(MatingIndexMP), MP, Zmin);
-                O2 = Neighbor_Pairing_Strategy2(Problem, AP(MatingIndexAP), AP, Zmin);
-            end
         end
 
         %% Stage switching condition
