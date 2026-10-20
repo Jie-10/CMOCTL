@@ -61,7 +61,7 @@ function main(Algorithm, Problem)
             improvementRate = (previousMeanObjAP - currentMeanObjAP) ./ max(abs(previousMeanObjAP), 1e-6);
             ir = mean(improvementRate);
 
-            if ir <= beta && Problem.FE / Problem.maxFE >= alpha
+            if (0 <= ir) && (ir <= beta) && Problem.FE / Problem.maxFE >= alpha
                 meanObjMP = mean(sum(MP.objs, 2));
                 meanObjAP = mean(sum(AP.objs, 2));
                 od = abs(meanObjMP - meanObjAP) / 2;
