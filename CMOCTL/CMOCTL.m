@@ -15,7 +15,7 @@ function main(Algorithm, Problem)
     [N, ~] = size(MP.objs);
     alpha = 0.3;
     beta  = 1e-3;
-    l     = 10;
+    l     = 20;
     od    = [];
     flagMP = ones(1, N);
 
